@@ -37,6 +37,17 @@ public class GerenciadorDocumentoModel {
         this.atual = documento;
         return documento;
     }
+    
+    public void inserirDocumento(Documento doc) {
+    	this.repositorio.add(doc);
+    	this.atual = doc;
+    }
+    
+    public void removerDocumento(Documento doc) {
+    	this.repositorio.remove(doc);
+    	if(this.atual == doc)
+    		this.atual = null;
+    }
 
     public void salvarDocumento(Documento doc, String conteudo) throws Exception {
         if (doc != null) {
@@ -90,6 +101,5 @@ public class GerenciadorDocumentoModel {
 	public void setDocumentoAtual(Documento doc) {
 		this.atual = doc;
 	}        
-    
     
 }
